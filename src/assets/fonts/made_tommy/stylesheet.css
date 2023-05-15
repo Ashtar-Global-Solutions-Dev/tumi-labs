@@ -1,0 +1,91 @@
+@font-face {
+    font-family: 'MADE TOMMY';
+    src: url('MADETOMMY-Thin.eot');
+    src: url('MADETOMMY-Thin.eot?#iefix') format('embedded-opentype'),
+        url('MADETOMMY-Thin.woff2') format('woff2'),
+        url('MADETOMMY-Thin.woff') format('woff'),
+        url('MADETOMMY-Thin.ttf') format('truetype'),
+        url('MADETOMMY-Thin.svg#MADETOMMY-Thin') format('svg');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'MADE TOMMY';
+    src: url('MADETOMMY.eot');
+    src: url('MADETOMMY.eot?#iefix') format('embedded-opentype'),
+        url('MADETOMMY.woff2') format('woff2'),
+        url('MADETOMMY.woff') format('woff'),
+        url('MADETOMMY.ttf') format('truetype'),
+        url('MADETOMMY.svg#MADETOMMY') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'MADE TOMMY';
+    src: url('MADETOMMY-Medium.eot');
+    src: url('MADETOMMY-Medium.eot?#iefix') format('embedded-opentype'),
+        url('MADETOMMY-Medium.woff2') format('woff2'),
+        url('MADETOMMY-Medium.woff') format('woff'),
+        url('MADETOMMY-Medium.ttf') format('truetype'),
+        url('MADETOMMY-Medium.svg#MADETOMMY-Medium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'MADE TOMMY';
+    src: url('MADETOMMY-Bold.eot');
+    src: url('MADETOMMY-Bold.eot?#iefix') format('embedded-opentype'),
+        url('MADETOMMY-Bold.woff2') format('woff2'),
+        url('MADETOMMY-Bold.woff') format('woff'),
+        url('MADETOMMY-Bold.ttf') format('truetype'),
+        url('MADETOMMY-Bold.svg#MADETOMMY-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'MADE TOMMY';
+    src: url('MADETOMMY-Black.eot');
+    src: url('MADETOMMY-Black.eot?#iefix') format('embedded-opentype'),
+        url('MADETOMMY-Black.woff2') format('woff2'),
+        url('MADETOMMY-Black.woff') format('woff'),
+        url('MADETOMMY-Black.ttf') format('truetype'),
+        url('MADETOMMY-Black.svg#MADETOMMY-Black') format('svg');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'MADE TOMMY';
+    src: url('MADETOMMY-Light.eot');
+    src: url('MADETOMMY-Light.eot?#iefix') format('embedded-opentype'),
+        url('MADETOMMY-Light.woff2') format('woff2'),
+        url('MADETOMMY-Light.woff') format('woff'),
+        url('MADETOMMY-Light.ttf') format('truetype'),
+        url('MADETOMMY-Light.svg#MADETOMMY-Light') format('svg');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'MADE TOMMY';
+    src: url('MADETOMMY-ExtraBold.eot');
+    src: url('MADETOMMY-ExtraBold.eot?#iefix') format('embedded-opentype'),
+        url('MADETOMMY-ExtraBold.woff2') format('woff2'),
+        url('MADETOMMY-ExtraBold.woff') format('woff'),
+        url('MADETOMMY-ExtraBold.ttf') format('truetype'),
+        url('MADETOMMY-ExtraBold.svg#MADETOMMY-ExtraBold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
