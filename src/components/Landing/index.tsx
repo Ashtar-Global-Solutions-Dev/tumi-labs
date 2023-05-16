@@ -8,8 +8,10 @@ export const Landing = () => {
     <Box
       css={{
         background: `url('/images/gredient_1.png')`,
-        backgroundSize: 'contain',
-        height: '100vh',
+        backgroundSize: 'cover',
+        backgroundPosition: '100% 100%',
+
+        minHeight: '100vh',
       }}
     >
       <Container xl>
@@ -19,7 +21,7 @@ export const Landing = () => {
           </Link>
         </Flex>
 
-        <Flex css={{ height: '60vh' }} align='center' justify='center'>
+        <Flex css={{ height: '62vh' }} align='center' justify='center'>
           <Text
             css={{
               fontFamily: "'Poppins'",
@@ -35,8 +37,25 @@ export const Landing = () => {
             coming soon
           </Text>
         </Flex>
+        <Flex align='center' justify='center' css={{ py: '50px' }}>
+          <Box as='a' href='https://twitter.com/TumiLabs' target='_blank'>
+            <Flex css={{ gap: '15px', cursor: 'pointer' }} align='center'>
+              <Box as='img' src='images/twitter.svg' />
+              <Text
+                css={{
+                  fontFamily: "'Poppins'",
+                  fontStyle: 'normal',
+                  fontWeight: 400,
+                  fontSize: '22px',
+                  lineHeight: '96%',
+                }}
+              >
+                @tumilabs
+              </Text>
+            </Flex>
+          </Box>
+        </Flex>
       </Container>
-      <Flex></Flex>
     </Box>
   );
 };
