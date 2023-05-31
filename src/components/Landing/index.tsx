@@ -30,6 +30,10 @@ export const Landing = () => {
               fontSize: '75px',
               lineHeight: '96%',
               textAlign: 'center',
+
+              '@media only screen and (max-width: 600px)': {
+                fontSize: '45px',
+              },
             }}
           >
             A new kind of venture studio
