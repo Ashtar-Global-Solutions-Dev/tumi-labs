@@ -37,8 +37,6 @@ export const Landing = () => {
             }}
           >
             A new kind of venture studio
-            <br />
-            coming soon
           </Text>
         </Flex>
         <Flex align='center' justify='center' css={{ py: '50px' }}>
