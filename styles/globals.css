@@ -12,14 +12,13 @@
   --color-surface-900: #0A0A0A;  /* DEEP BLACK Background */
   --color-surface-800: #1A1A1A;  /* Card Background */
   
-  --font-heading: 'Bebas Neue', 'Impact', sans-serif;
-  --font-body: 'Poppins', 'Inter', sans-serif;
-  --font-logo: 'Nunito', 'Quicksand', sans-serif;
+  /* Fonts mapped to Next.js font variables */
+  --font-heading: var(--font-heading);
+  --font-body: var(--font-body);
+  --font-logo: var(--font-logo);
 }
 
 @layer base {
-  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@700&family=Poppins:wght@300;400;500;600&display=swap');
-
   html {
     scroll-behavior: smooth;
   }
@@ -49,12 +48,12 @@
   }
   
   .btn-primary {
-    @apply bg-gradient-to-r from-primary-500 to-primary-600 text-black px-8 py-3 rounded-lg font-bold uppercase tracking-wider transition-all duration-300 hover:shadow-[0_0_20px_rgba(200,148,62,0.3)] hover:scale-105 hover:from-primary-400 hover:to-primary-500;
+    @apply bg-gradient-to-r from-primary-500 to-primary-600 text-black px-8 py-3 rounded-lg font-bold uppercase tracking-wider transition-all duration-300 hover:shadow-[0_0_20px_rgba(200,148,62,0.3)] hover:scale-105 hover:from-primary-400 hover:to-primary-500 cursor-pointer;
     font-family: var(--font-body);
   }
   
   .btn-secondary {
-    @apply border border-primary-500/30 text-primary-400 px-8 py-3 rounded-lg font-bold uppercase tracking-wider transition-all duration-300 hover:bg-primary-500/10 hover:border-primary-500 hover:text-primary-500;
+    @apply border border-primary-500/30 text-primary-400 px-8 py-3 rounded-lg font-bold uppercase tracking-wider transition-all duration-300 hover:bg-primary-500/10 hover:border-primary-500 hover:text-primary-500 cursor-pointer;
     font-family: var(--font-body);
   }
   

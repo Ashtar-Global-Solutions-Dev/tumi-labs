@@ -1,114 +1,116 @@
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink, Github, ArrowUpRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export default function CaseStudies() {
   const projects = [
     {
       title: "Honeycomb Protocol",
-      category: "NFT Ecosystem",
-      desc: "A complete NFT staking and guild management ecosystem. Handles complex on-chain interactions while providing smooth off-chain services for profile management and community building.",
-      tech: ["Rust", "Anchor", "Node.js", "Next.js"],
-      stats: ["NFT Staking", "Guild System", "Profile Mgmt"],
-      color: "from-orange-400 to-amber-500"
+      type: "Infrastructure",
+      desc: "Comprehensive NFT ecosystem enabling staking, missions, and guild management for communities.",
+      tags: ["Rust", "Anchor", "Microservices"],
+      stat: "100k+ Transactions",
+      link: "https://honeycomb.protocol"
     },
     {
       title: "Sol Patrol",
-      category: "Gaming Platform",
-      desc: "Interactive gaming platform combining real-time gameplay with blockchain mechanics. Features automated game states, on-chain asset verification, and high-performance chat infrastructure.",
-      tech: ["Solana Game Logic", "WebSocket", "Cron Jobs"],
-      stats: ["Real-time Gaming", "Asset Ownership", "Live Chat"],
-      color: "from-blue-400 to-indigo-500"
+      type: "Gaming",
+      desc: "Real-time GameFi engine with WebSocket architecture and automated on-chain state management.",
+      tags: ["Game Engine", "WebSockets", "Node.js"],
+      stat: "Real-time Gameplay",
+      link: "#"
     },
     {
       title: "Ocean Explorers",
-      category: "cNFT Platform",
-      desc: "Innovative expedition system leveraging Compressed NFTs (cNFTs) for cost-effective, large-scale asset distribution. Reduced minting costs by over 95% while maintaining full utility.",
-      tech: ["cNFTs", "Metaplex", "IPFS", "React"],
-      stats: ["95% Cost Reduction", "Massive Scale", "Engaging UX"],
-      color: "from-cyan-400 to-blue-500"
+      type: "NFT Innovation",
+      desc: "Pioneering cNFT (Compressed NFT) platform reducing minting costs by 99% for mass-scale assets.",
+      tags: ["State Compression", "Metaplex", "React"],
+      stat: "1M+ Assets",
+      link: "#"
     },
     {
       title: "ProLeague",
-      category: "Tournament System",
-      desc: "Sophisticated tournament infrastructure with automated smart contracts for matchmaking and prize distribution. Ensures fair play and transparent operations for competitive gaming.",
-      tech: ["Smart Contracts", "Matchmaking", "Microservices"],
-      stats: ["Automated Payouts", "Fair Play", "Scalable"],
-      color: "from-red-400 to-pink-500"
-    },
-    {
-      title: "Raffles",
-      category: "On-Chain Raffle",
-      desc: "Fully decentralized raffle system ensuring provable fairness via Chainlink VRF. Handles ticket sales, winner selection, and prize distribution entirely on-chain.",
-      tech: ["Chainlink VRF", "Rust", "Event Monitoring"],
-      stats: ["Provably Fair", "Auto Distribution", "Secure"],
-      color: "from-green-400 to-emerald-500"
+      type: "eSports",
+      desc: "High-stakes tournament platform with automated smart contract payouts and matchmaking.",
+      tags: ["Escrow Contracts", "Matchmaking", "Security"],
+      stat: "$500k+ Volume",
+      link: "#"
     },
     {
       title: "Beholders",
-      category: "DeFi Protocol",
-      desc: "Advanced DeFi platform with complex state management and real-time data synchronization. Features custom indexers and high-performance APIs for seamless financial operations.",
-      tech: ["DeFi Logic", "Data Indexing", "High-Perf API"],
-      stats: ["Complex State", "Real-time Sync", "Secure DeFi"],
-      color: "from-purple-400 to-violet-500"
+      type: "DeFi",
+      desc: "Advanced DeFi protocol with custom indexing infrastructure and complex yield strategies.",
+      tags: ["DeFi Logic", "Indexers", "Analytics"],
+      stat: "Custom Indexing",
+      link: "#"
+    },
+    {
+      title: "Raffles On-Chain",
+      type: "Utility",
+      desc: "Provably fair raffle system using on-chain randomness (VRF) for transparent prize distribution.",
+      tags: ["Verifiable Randomness", "Security", "Audit"],
+      stat: "100% On-Chain",
+      link: "#"
     }
   ];
 
   return (
-    <section id="case-studies" className="section bg-white/5 rounded-3xl my-20">
-      <div className="text-center mb-16">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured Projects</h2>
-        <p className="text-gray-400 max-w-2xl mx-auto">
-          Real-world applications solving complex challenges on Solana.
-        </p>
-      </div>
+    <section id="work" className="py-32 bg-[#0A0A0A] border-t border-white/5">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+          <div>
+            <span className="text-[#C8943E] font-bold tracking-[0.2em] text-sm uppercase mb-4 block">Selected Work</span>
+            <h2 className="text-5xl md:text-7xl font-heading text-white leading-none">
+              Featured <br />
+              Projects
+            </h2>
+          </div>
+          <a href="https://github.com/Ashtar-Global-Solutions-Dev" target="_blank" className="text-gray-400 hover:text-white flex items-center gap-2 transition-colors border-b border-gray-700 hover:border-white pb-1">
+            View full portfolio <ArrowUpRight size={18} />
+          </a>
+        </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projects.map((project, i) => (
-          <div key={i} className="group relative bg-[#0a0e27] border border-white/10 rounded-xl overflow-hidden hover:border-white/20 transition-all duration-300 hover:-translate-y-1">
-            {/* Gradient Header */}
-            <div className={`h-2 bg-gradient-to-r ${project.color}`} />
-            
-            <div className="p-6">
-              <div className="flex justify-between items-start mb-4">
-                <span className="text-xs font-semibold uppercase tracking-wider text-gray-500 border border-white/10 px-2 py-1 rounded">
-                  {project.category}
-                </span>
-                <div className="flex gap-2">
-                  <Github size={16} className="text-gray-600 hover:text-white cursor-pointer transition-colors" />
-                  <ExternalLink size={16} className="text-gray-600 hover:text-white cursor-pointer transition-colors" />
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.map((project, i) => (
+            <motion.div 
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="group relative bg-[#111] rounded-2xl overflow-hidden border border-white/5 hover:border-[#C8943E]/50 transition-all duration-500 hover:-translate-y-2"
+            >
+              <div className="p-8 h-full flex flex-col">
+                <div className="flex justify-between items-start mb-6">
+                  <span className="text-xs font-bold uppercase tracking-wider text-gray-500 border border-white/10 px-3 py-1 rounded-full group-hover:border-[#C8943E]/30 group-hover:text-[#C8943E] transition-colors">
+                    {project.type}
+                  </span>
+                  <ExternalLink size={20} className="text-gray-600 group-hover:text-white transition-colors" />
+                </div>
+
+                <h3 className="text-2xl font-heading text-white mb-3 group-hover:text-[#C8943E] transition-colors">{project.title}</h3>
+                <p className="text-gray-400 text-sm leading-relaxed mb-8 flex-grow">
+                  {project.desc}
+                </p>
+
+                <div className="space-y-4">
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.map((tag, j) => (
+                      <span key={j} className="text-[10px] uppercase tracking-wider text-gray-500 bg-white/5 px-2 py-1 rounded">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="pt-4 border-t border-white/5 flex items-center gap-2 text-[#C8943E] text-xs font-bold uppercase tracking-wider">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#C8943E]" />
+                    {project.stat}
+                  </div>
                 </div>
               </div>
+            </motion.div>
+          ))}
+        </div>
 
-              <h3 className="text-xl font-bold text-white mb-3">{project.title}</h3>
-              <p className="text-gray-400 text-sm mb-6 line-clamp-3 leading-relaxed">
-                {project.desc}
-              </p>
-
-              {/* Tech Stack Pills */}
-              <div className="flex flex-wrap gap-2 mb-6">
-                {project.tech.map((t, j) => (
-                  <span key={j} className="text-xs bg-white/5 text-gray-300 px-2 py-1 rounded">
-                    {t}
-                  </span>
-                ))}
-              </div>
-
-              {/* Stats/Features */}
-              <div className="grid grid-cols-3 gap-2 pt-4 border-t border-white/5">
-                {project.stats.map((s, k) => (
-                  <div key={k} className="text-center">
-                    <span className="text-[10px] font-medium text-solana-400 block truncate">{s}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <div className="text-center mt-12">
-        <a href="https://github.com/Ashtar-Global-Solutions-Dev" target="_blank" className="btn-secondary inline-flex items-center gap-2">
-          <Github size={18} /> View More on GitHub
-        </a>
       </div>
     </section>
   );
