@@ -106,7 +106,7 @@ export default function Home() {
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.8 }}
-            className="fixed inset-0 z-[100] bg-dark-950 flex items-center justify-center cursor-pointer"
+            className="fixed inset-0 z-[100] bg-black flex items-center justify-center cursor-pointer overflow-hidden"
             onClick={skipIntro}
           >
             <video
@@ -116,7 +116,7 @@ export default function Home() {
               muted
               playsInline
               onEnded={handleVideoEnd}
-              className="w-full max-w-2xl"
+              className="w-screen h-screen object-contain"
             />
             <button 
               onClick={skipIntro}
