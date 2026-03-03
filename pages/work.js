@@ -90,16 +90,17 @@ const projects = [
     linkLabel: 'Live App',
   },
   {
-    title: 'Kek Staking',
+    title: 'KEK Platform',
     category: 'DeFi / RWA',
-    subtitle: 'Token Staking Protocol',
+    subtitle: 'AI Platform Staking Infrastructure',
     description:
-      'Token staking platform with a rewards distribution system built on Solana using the Anchor framework.',
-    tags: ['TypeScript', 'Solana', 'Anchor'],
+      'Staking infrastructure for KEK, an AI platform by Arman. Features tiered reward rates, configurable lock periods, and early unstaking penalties built on Solana with Anchor.',
+    tags: ['TypeScript', 'Rust', 'Solana', 'Anchor', 'AI'],
     highlights: [
-      'On-chain staking mechanism',
-      'Rewards distribution system',
-      'Anchor smart contracts',
+      'Tiered reward system (10-20% APY)',
+      'Configurable lock periods',
+      'Early unstaking penalties',
+      'Token22 support',
     ],
   },
   {

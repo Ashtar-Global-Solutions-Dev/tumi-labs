@@ -149,7 +149,7 @@ First-to-market decentralized real estate marketplace on Solana. Enables fractio
 
 ---
 
-### 5. Kek Staking
+### 5. KEK Platform
 **Category:** DeFi — Staking Protocol
 
 **Description:**
