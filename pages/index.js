@@ -84,8 +84,11 @@ export default function Home() {
   }, []);
 
   const handleVideoEnd = () => {
-    sessionStorage.setItem('introSeen', 'true');
-    setShowIntro(false);
+    // Hold on final frame for 1 second before fading out
+    setTimeout(() => {
+      sessionStorage.setItem('introSeen', 'true');
+      setShowIntro(false);
+    }, 1000);
   };
 
   const skipIntro = () => {
@@ -105,7 +108,7 @@ export default function Home() {
           <motion.div
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 1.2, ease: "easeInOut" }}
             className="fixed inset-0 z-[100] bg-black flex items-center justify-center cursor-pointer overflow-hidden"
             onClick={skipIntro}
           >
