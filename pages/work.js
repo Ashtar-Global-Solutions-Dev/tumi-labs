@@ -43,9 +43,9 @@ const projects = [
   {
     title: 'Hololaunch',
     category: 'Infrastructure',
-    subtitle: 'Decentralized Token Launchpad — Binance-listed',
+    subtitle: 'Launchpad Infrastructure for Binance-Listed Project',
     description:
-      'Built a sophisticated Solana-based decentralized launchpad for the Holoworld team. Features staking rewards, lottery-based token distribution, and full ICO functionality. The client\'s token achieved a Binance listing.',
+      'Built a sophisticated Solana-based decentralized launchpad for the Holoworld team. Features staking rewards, lottery-based token distribution, and full ICO functionality. The project later achieved a Binance listing.',
     tags: ['Rust', 'Anchor 0.31', 'TypeScript', 'Express.js', 'PostgreSQL', 'Prisma', 'Yellowstone gRPC'],
     highlights: [
       'Staking Module — Rewards with points & claiming',
@@ -59,7 +59,7 @@ const projects = [
     linkLabel: 'Live Site',
     detail: {
       label: 'Notable',
-      value: '$200M+ raised · Binance listed',
+      value: '$200M+ raised · Binance-listed project',
     },
   },
   {
@@ -407,7 +407,7 @@ export default function Work() {
               { value: '175+', label: 'Repositories' },
               { value: '4', label: 'GitHub Orgs' },
               { value: '9', label: 'Case Studies' },
-              { value: 'Binance', label: 'Client Token Listed' },
+              { value: '1', label: 'Binance-Listed Client' },
             ].map((stat) => (
               <div key={stat.label}>
                 <div className="text-xl font-bold text-brand-white">{stat.value}</div>

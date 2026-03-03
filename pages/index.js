@@ -7,7 +7,7 @@ import SectionHeading from '@/components/SectionHeading';
 const stats = [
   { value: '9', label: 'Products Shipped to Mainnet' },
   { value: 'Core', label: 'Contributors to Honeycomb Protocol' },
-  { value: '1', label: 'Client Token Listed on Binance' },
+  { value: '1', label: 'Binance-Listed Client' },
   { value: '$200M+', label: 'Raised via Our Launchpads' },
 ];
 
@@ -62,7 +62,7 @@ const featuredWork = [
     title: 'Hololaunch',
     category: 'Decentralized Token Launchpad',
     desc: 'Built the full launchpad with staking, ICO, and lottery modules.',
-    impact: '$200M+ raised. Client token listed on Binance.',
+    impact: '$200M+ raised. Binance-listed project.',
     tags: ['Rust', 'Anchor', 'PostgreSQL'],
     gradient: 'from-accent to-brand-pink',
     highlight: true,
@@ -125,7 +125,7 @@ export default function Home() {
     <>
       <Head>
         <title>TumiLabs | Solana Development Studio — Ship Production-Ready Products</title>
-        <meta name="description" content="The Solana studio behind Honeycomb Protocol and a Binance-listed token. We ship production-ready smart contracts, dApps, and Web3 products on schedule." />
+        <meta name="description" content="The Solana studio behind Honeycomb Protocol and launchpad infrastructure for Binance-listed projects. We ship production-ready smart contracts, dApps, and Web3 products on schedule." />
       </Head>
 
       {/* Video Intro */}
@@ -187,7 +187,7 @@ export default function Home() {
 
             <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed">
               We&rsquo;re the development studio that shipped Honeycomb Protocol&rsquo;s gaming infrastructure, 
-              got Hololaunch listed on Binance, and delivered 9 production Solana products. 
+              built launchpad infrastructure for a Binance-listed project, and delivered 9 production Solana products. 
               <span className="text-brand-white font-medium"> Now we&rsquo;re ready for yours.</span>
             </p>
 
@@ -314,7 +314,7 @@ export default function Home() {
                 {project.highlight && (
                   <div className="absolute top-4 right-4">
                     <span className="px-3 py-1 text-xs font-medium rounded-full bg-accent text-dark-950">
-                      Binance Listed
+                      Binance-Listed Project
                     </span>
                   </div>
                 )}
