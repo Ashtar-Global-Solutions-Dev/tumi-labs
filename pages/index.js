@@ -73,14 +73,13 @@ const fadeUp = {
 };
 
 export default function Home() {
-  const [showIntro, setShowIntro] = useState(true);
+  const [showIntro, setShowIntro] = useState(null); // null = checking
   const videoRef = useRef(null);
 
   useEffect(() => {
     // Check if user has seen intro this session
-    if (sessionStorage.getItem('introSeen')) {
-      setShowIntro(false);
-    }
+    const seen = sessionStorage.getItem('introSeen');
+    setShowIntro(!seen);
   }, []);
 
   const handleVideoEnd = () => {
@@ -104,7 +103,7 @@ export default function Home() {
 
       {/* Video Intro */}
       <AnimatePresence>
-        {showIntro && (
+        {showIntro === true && (
           <motion.div
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -143,8 +142,8 @@ export default function Home() {
         <div className="relative max-w-7xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: showIntro ? 0 : 1, y: showIntro ? 40 : 0 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: showIntro ? 0 : 0.2 }}
+            animate={{ opacity: showIntro === false ? 1 : 0, y: showIntro === false ? 0 : 40 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
           >
             <span className="inline-block px-4 py-1.5 rounded-full text-xs font-medium text-brand-pink bg-brand-pink/10 border border-brand-pink/20 mb-8">
               Solana Venture Studio
