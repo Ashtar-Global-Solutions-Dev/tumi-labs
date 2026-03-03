@@ -76,7 +76,7 @@ export default function About() {
       <section className="pt-32 pb-20 relative">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-accent/8 rounded-full blur-[128px]" />
-          <div className="absolute bottom-0 right-1/3 w-96 h-96 bg-brand-turquoise/5 rounded-full blur-[128px]" />
+          <div className="absolute bottom-0 right-1/3 w-96 h-96 bg-brand-pink/5 rounded-full blur-[128px]" />
         </div>
 
         <div className="relative max-w-7xl mx-auto px-6">
@@ -203,7 +203,7 @@ export default function About() {
               >
                 <div className="text-sm font-medium text-brand-white mb-1">{item.area}</div>
                 <div className={`text-xs ${
-                  item.level === 'Core' ? 'text-brand-turquoise' :
+                  item.level === 'Core' ? 'text-brand-pink' :
                   item.level === 'Deep' ? 'text-accent' :
                   'text-brand-frostbite'
                 }`}>

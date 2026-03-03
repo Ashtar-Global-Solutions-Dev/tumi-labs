@@ -54,7 +54,7 @@ const featuredWork = [
     category: 'DeFi',
     desc: 'Token staking smart contract and backend services built with Anchor on Solana.',
     tags: ['Rust', 'Anchor', 'Solana'],
-    gradient: 'from-brand-turquoise to-accent',
+    gradient: 'from-brand-pink to-accent',
   },
   {
     title: 'Solana Raffle',
@@ -133,7 +133,7 @@ export default function Home() {
         {/* Background effects */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-1/4 -left-32 w-96 h-96 bg-accent/10 rounded-full blur-[128px]" />
-          <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-brand-turquoise/10 rounded-full blur-[128px]" />
+          <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-brand-pink/10 rounded-full blur-[128px]" />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-pink/5 rounded-full blur-[200px]" />
         </div>
 
@@ -143,7 +143,7 @@ export default function Home() {
             animate={{ opacity: showIntro ? 0 : 1, y: showIntro ? 40 : 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: showIntro ? 0 : 0.2 }}
           >
-            <span className="inline-block px-4 py-1.5 rounded-full text-xs font-medium text-brand-turquoise bg-brand-turquoise/10 border border-brand-turquoise/20 mb-8">
+            <span className="inline-block px-4 py-1.5 rounded-full text-xs font-medium text-brand-pink bg-brand-pink/10 border border-brand-pink/20 mb-8">
               Solana Venture Studio
             </span>
 

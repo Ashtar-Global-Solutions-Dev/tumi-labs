@@ -25,7 +25,7 @@ const projects = [
     category: 'DeFi',
     description: 'A token staking smart contract and backend services built with Anchor on Solana. Includes delegation mechanisms, reward distribution, and migration tooling for protocol upgrades.',
     tags: ['Rust', 'Anchor', 'Node.js', 'Solana'],
-    gradient: 'from-brand-turquoise to-accent',
+    gradient: 'from-brand-pink to-accent',
     highlights: ['On-chain staking', 'Delegation services', 'Migration scripts'],
   },
   {
@@ -41,7 +41,7 @@ const projects = [
     category: 'AI + Web3',
     description: 'Backend service connecting AI agents with mobile document scanning devices. Features scan request brokerage, API key authentication with SHA-256 hashing, real-time webhooks, and rate limiting.',
     tags: ['Fastify', 'PostgreSQL', 'Drizzle ORM', 'TypeScript'],
-    gradient: 'from-accent to-brand-turquoise',
+    gradient: 'from-accent to-brand-pink',
     highlights: ['AI agent integration', 'Real-time webhooks', '32 unit tests'],
   },
   {
@@ -49,7 +49,7 @@ const projects = [
     category: 'Full-Stack Platform',
     description: 'A comprehensive workflow automation platform for Durable Medical Equipment. Includes claims tracking, Medicare compliance engine, allowable calculator, and EDI integration with dark mode UI.',
     tags: ['Next.js', 'Express', 'Prisma', 'Redis'],
-    gradient: 'from-brand-turquoise to-brand-pink',
+    gradient: 'from-brand-pink to-brand-pink',
     highlights: ['Claims tracking timeline', 'Medicare compliance', 'EDI integration'],
   },
 ];
@@ -136,7 +136,7 @@ export default function Work() {
                       <ul className="space-y-2">
                         {project.highlights.map((highlight) => (
                           <li key={highlight} className="flex items-center gap-2 text-sm text-gray-400">
-                            <svg className="w-4 h-4 text-brand-turquoise flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <svg className="w-4 h-4 text-brand-pink flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                               <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                             </svg>
                             {highlight}

@@ -73,8 +73,8 @@ export default function Contact() {
             <motion.div {...fadeUp} className="md:col-span-3">
               {submitted ? (
                 <div className="rounded-2xl glass p-12 text-center">
-                  <div className="w-16 h-16 rounded-full bg-brand-turquoise/10 flex items-center justify-center mx-auto mb-6">
-                    <svg className="w-8 h-8 text-brand-turquoise" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <div className="w-16 h-16 rounded-full bg-brand-pink/10 flex items-center justify-center mx-auto mb-6">
+                    <svg className="w-8 h-8 text-brand-pink" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                     </svg>
                   </div>

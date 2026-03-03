@@ -75,7 +75,7 @@ export default function Footer() {
           </p>
           <div className="flex items-center gap-1 text-sm text-gray-600">
             <span>Built on</span>
-            <span className="text-brand-turquoise font-medium">Solana</span>
+            <span className="text-brand-pink font-medium">Solana</span>
           </div>
         </div>
       </div>
