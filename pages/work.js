@@ -1,56 +1,169 @@
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Head from 'next/head';
 import Link from 'next/link';
+import { useState } from 'react';
 import SectionHeading from '@/components/SectionHeading';
+
+const categories = ['All', 'Infrastructure', 'DeFi / RWA', 'AI', 'Gaming'];
+
+const categoryGradients = {
+  Infrastructure: 'from-accent to-brand-turquoise',
+  'DeFi / RWA': 'from-brand-pink to-accent',
+  AI: 'from-brand-turquoise to-brand-pink',
+  Gaming: 'from-brand-frostbite to-accent',
+};
+
+const categoryColors = {
+  Infrastructure: 'text-accent bg-accent/10',
+  'DeFi / RWA': 'text-brand-pink bg-brand-pink/10',
+  AI: 'text-brand-turquoise bg-brand-turquoise/10',
+  Gaming: 'text-brand-frostbite bg-brand-frostbite/10',
+};
 
 const projects = [
   {
-    title: 'Candy Machine V3 UI',
-    category: 'NFT Infrastructure',
-    description: 'A production-ready minting interface for Metaplex Candy Machine V3 with support for 21+ guard types. Features multi-mint capabilities, countdown timers, NFT previews, and responsive design.',
-    tags: ['Next.js', 'Solana', 'Metaplex', 'Web3.js'],
-    gradient: 'from-accent to-brand-pink',
-    highlights: ['21+ guard types supported', 'Multi-mint interface', 'Real-time countdown'],
+    title: 'Honeycomb Protocol',
+    category: 'Infrastructure',
+    subtitle: 'Web3 Gaming Infrastructure on Solana',
+    description:
+      'Core contributor to the leading Web3 gaming infrastructure on Solana. Built foundational components powering on-chain game economies, asset management, and game engine integrations.',
+    tags: ['Rust', 'Anchor', 'TypeScript', 'Unity C#', 'Yellowstone gRPC'],
+    highlights: [
+      'hive-control — Core protocol control layer',
+      'nectar-utilities — Staking utilities & rewards',
+      'asset-hub — Digital asset management',
+      'Unity-SDK — Game engine integration',
+      'toolkit — Core Rust toolkit',
+      'Compressed accounts indexer (DAS fork)',
+    ],
+    link: 'https://github.com/Honeycomb-Protocol',
+    linkLabel: 'GitHub',
   },
   {
-    title: 'MPL Candy Guard',
-    category: 'Smart Contract',
-    description: 'A modular Solana smart contract for NFT mint access control, separating guard logic from core minting. Built with Anchor, featuring 15+ configurable guards with pre and post-mint action hooks.',
-    tags: ['Rust', 'Anchor', 'Solana', 'TypeScript SDK'],
-    gradient: 'from-brand-pink to-brand-frostbite',
-    highlights: ['15+ configurable guards', 'Modular architecture', 'TypeScript SDK'],
+    title: 'Hololaunch',
+    category: 'Infrastructure',
+    subtitle: 'Decentralized Token Launchpad — Binance-listed',
+    description:
+      'Built a sophisticated Solana-based decentralized launchpad for the Holoworld team. Features staking rewards, lottery-based token distribution, and full ICO functionality. The client\'s token achieved a Binance listing.',
+    tags: ['Rust', 'Anchor 0.31', 'TypeScript', 'Express.js', 'PostgreSQL', 'Prisma', 'Yellowstone gRPC'],
+    highlights: [
+      'Staking Module — Rewards with points & claiming',
+      'Launchpad Module — Lottery-based token distribution',
+      'ICO Module — Full offering system with whitelist, vesting & raffles',
+      'Real-time blockchain indexer via Yellowstone gRPC',
+      'TSOA/Swagger API documentation',
+    ],
+    detail: {
+      label: 'Notable',
+      value: 'Client token listed on Binance',
+    },
   },
   {
-    title: 'Staking Protocol',
-    category: 'DeFi',
-    description: 'A token staking smart contract and backend services built with Anchor on Solana. Includes delegation mechanisms, reward distribution, and migration tooling for protocol upgrades.',
-    tags: ['Rust', 'Anchor', 'Node.js', 'Solana'],
-    gradient: 'from-brand-pink to-accent',
-    highlights: ['On-chain staking', 'Delegation services', 'Migration scripts'],
+    title: 'GameShift',
+    category: 'Infrastructure',
+    subtitle: 'Solana Game Integration Platform',
+    description:
+      'Contributed to Solana\'s game integration platform enabling seamless Web3 functionality in games. Built core infrastructure, SDK development, wallet adapters, and payments reference implementations.',
+    tags: ['TypeScript', 'Solana Web3.js', 'React'],
+    highlights: [
+      'Core platform infrastructure',
+      'Modular TypeScript wallet adapters',
+      'Payments reference implementation',
+      'Developer documentation',
+    ],
   },
   {
-    title: 'Solana Raffle',
-    category: 'dApp',
-    description: 'A full-stack on-chain raffle platform with real-time updates, analytics dashboards, and a comprehensive UI component library. Features WebSocket support for live updates and Recharts-powered analytics.',
-    tags: ['React', 'Express', 'PostgreSQL', 'Tailwind CSS'],
-    gradient: 'from-brand-frostbite to-accent',
-    highlights: ['Real-time WebSocket updates', 'Analytics dashboard', 'Full component library'],
+    title: 'LiquidProp',
+    category: 'DeFi / RWA',
+    subtitle: 'Decentralized Real Estate Marketplace',
+    description:
+      'First-to-market decentralized real estate marketplace on Solana. Enables fractional ownership of U.S. rental properties with $100 minimum investment and fully permissionless trading of property tokens.',
+    tags: ['Solana', 'Anchor', 'TypeScript', 'React', 'SPL Tokens'],
+    highlights: [
+      '$100 fractional property shares as SPL tokens',
+      'Permissionless marketplace for property token trading',
+      'Smart contract-based instant P2P transactions',
+      'Rent distribution via micropayments',
+      'Real U.S. rental properties on-chain',
+    ],
+    link: 'https://liquidprop-marketplace.vercel.app',
+    linkLabel: 'Live App',
   },
   {
-    title: 'AgentScan API',
-    category: 'AI + Web3',
-    description: 'Backend service connecting AI agents with mobile document scanning devices. Features scan request brokerage, API key authentication with SHA-256 hashing, real-time webhooks, and rate limiting.',
-    tags: ['Fastify', 'PostgreSQL', 'Drizzle ORM', 'TypeScript'],
-    gradient: 'from-accent to-brand-pink',
-    highlights: ['AI agent integration', 'Real-time webhooks', '32 unit tests'],
+    title: 'Kek Staking',
+    category: 'DeFi / RWA',
+    subtitle: 'Token Staking Protocol',
+    description:
+      'Token staking platform with a rewards distribution system built on Solana using the Anchor framework.',
+    tags: ['TypeScript', 'Solana', 'Anchor'],
+    highlights: [
+      'On-chain staking mechanism',
+      'Rewards distribution system',
+      'Anchor smart contracts',
+    ],
   },
   {
-    title: 'DME Automation',
-    category: 'Full-Stack Platform',
-    description: 'A comprehensive workflow automation platform for Durable Medical Equipment. Includes claims tracking, Medicare compliance engine, allowable calculator, and EDI integration with dark mode UI.',
-    tags: ['Next.js', 'Express', 'Prisma', 'Redis'],
-    gradient: 'from-brand-pink to-brand-pink',
-    highlights: ['Claims tracking timeline', 'Medicare compliance', 'EDI integration'],
+    title: 'Raffles Platform',
+    category: 'Infrastructure',
+    subtitle: 'On-Chain Community Raffle System',
+    description:
+      'Full-stack on-chain raffle system deployed across multiple NFT communities. Provides fair, verifiable raffles with real-time updates and admin tooling.',
+    tags: ['TypeScript', 'React', 'Next.js', 'Express.js', 'PostgreSQL', 'Solana'],
+    highlights: [
+      'On-chain raffle creation & ticket purchasing',
+      'Verifiable random winner selection',
+      'Admin dashboard for community managers',
+      'Deployed for 5+ communities (WiseCats, FujiLions, Drippies, Wobblebug)',
+    ],
+  },
+  {
+    title: 'AgentsCan',
+    category: 'AI',
+    subtitle: 'AI Agent ↔ Mobile Document Bridge',
+    description:
+      'Cloud API connecting AI agents (LangChain, n8n, custom bots) with mobile devices for physical document scanning. When an AI agent needs a document, the request routes to a paired iOS device for scanning, with PDF + OCR results delivered back in real time.',
+    tags: ['Node.js', 'TypeScript', 'Fastify 5', 'PostgreSQL', 'Drizzle ORM', 'Swift'],
+    highlights: [
+      'AI Agent → API → iOS scanner pipeline',
+      'API key auth for agents, device auth for mobile',
+      'Webhook delivery with auto-cleanup & TTL',
+      'Rate limiting (100 req/min)',
+      '32 tests passing across 7 test files',
+    ],
+    architecture: [
+      { label: 'AI Agent', sub: '(n8n, LangChain)', arrow: 'HTTP' },
+      { label: 'AgentsCan API', sub: '(Fastify + PG)', arrow: 'Push' },
+      { label: 'iOS App', sub: '(Scanner + OCR)', arrow: null },
+    ],
+  },
+  {
+    title: 'Proleague Tournament',
+    category: 'Gaming',
+    subtitle: 'On-Chain Esports System',
+    description:
+      'On-chain esports tournament system with Honeycomb Protocol integration. Enables decentralized tournament management, prize pool distribution, and matchmaking on Solana.',
+    tags: ['TypeScript', 'Solana', 'Anchor', 'Honeycomb hive-control'],
+    highlights: [
+      'Tournament creation & management',
+      'On-chain prize pool distribution',
+      'Matchmaking system',
+      'Honeycomb Protocol integration',
+      'SPL token support',
+    ],
+  },
+  {
+    title: 'BonkSpin',
+    category: 'Gaming',
+    subtitle: 'Viral $BONK Spin Wheel Game',
+    description:
+      'Viral spin wheel game with $BONK token integration. High-engagement gamification mechanic built for token communities with provably fair results.',
+    tags: ['TypeScript', 'React', 'Solana Web3.js'],
+    highlights: [
+      'Spin wheel mechanics',
+      '$BONK token integration',
+      'Prize distribution system',
+      'Provably fair results',
+    ],
   },
 ];
 
@@ -63,8 +176,16 @@ const techStack = [
   { name: 'Next.js', category: 'Framework' },
   { name: 'Node.js', category: 'Backend' },
   { name: 'PostgreSQL', category: 'Database' },
-  { name: 'Redis', category: 'Cache' },
+  { name: 'Fastify', category: 'Backend' },
+  { name: 'Express', category: 'Backend' },
+  { name: 'Prisma', category: 'ORM' },
+  { name: 'Drizzle', category: 'ORM' },
+  { name: 'Unity', category: 'Game Engine' },
+  { name: 'Swift', category: 'Mobile' },
+  { name: 'Yellowstone gRPC', category: 'Indexer' },
   { name: 'Metaplex', category: 'Protocol' },
+  { name: 'Redis', category: 'Cache' },
+  { name: 'Go', category: 'Language' },
 ];
 
 const fadeUp = {
@@ -74,12 +195,154 @@ const fadeUp = {
   transition: { duration: 0.6 },
 };
 
+function ArchitectureDiagram({ architecture }) {
+  return (
+    <div className="flex items-center gap-2 overflow-x-auto py-4">
+      {architecture.map((node, i) => (
+        <div key={node.label} className="flex items-center gap-2 flex-shrink-0">
+          <div className="px-4 py-3 rounded-lg bg-white/5 border border-white/10 text-center min-w-[120px]">
+            <div className="text-sm font-medium text-brand-white">{node.label}</div>
+            <div className="text-xs text-gray-500 mt-0.5">{node.sub}</div>
+          </div>
+          {node.arrow && (
+            <div className="flex flex-col items-center gap-0.5 flex-shrink-0">
+              <span className="text-[10px] text-gray-600">{node.arrow}</span>
+              <svg className="w-6 h-3 text-gray-600" fill="none" viewBox="0 0 24 12" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M0 6h20m0 0l-4-4m4 4l-4 4" />
+              </svg>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function ProjectCard({ project, index }) {
+  const [expanded, setExpanded] = useState(false);
+  const gradient = categoryGradients[project.category] || 'from-accent to-brand-pink';
+  const catColor = categoryColors[project.category] || 'text-accent bg-accent/10';
+
+  return (
+    <motion.div
+      {...fadeUp}
+      transition={{ duration: 0.5, delay: index * 0.05 }}
+      className="group rounded-2xl glass hover:bg-white/[0.08] transition-all duration-300 overflow-hidden cursor-pointer"
+      onClick={() => setExpanded(!expanded)}
+    >
+      <div className="grid md:grid-cols-5 gap-0">
+        <div className={`md:col-span-2 h-full min-h-[200px] bg-gradient-to-br ${gradient} opacity-15 group-hover:opacity-25 transition-opacity relative`}>
+          {project.detail && (
+            <div className="absolute bottom-4 left-4 right-4">
+              <div className="px-3 py-2 rounded-lg bg-black/60 backdrop-blur-sm border border-white/10">
+                <span className="text-[10px] uppercase tracking-wider text-gray-400">{project.detail.label}</span>
+                <div className="text-sm font-semibold text-accent">{project.detail.value}</div>
+              </div>
+            </div>
+          )}
+        </div>
+        <div className="md:col-span-3 p-8 md:p-10">
+          <div className="flex items-center gap-3 mb-1">
+            <span className={`text-xs font-medium px-3 py-1 rounded-full ${catColor}`}>
+              {project.category}
+            </span>
+            {project.link && (
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="text-xs text-gray-500 hover:text-accent transition-colors flex items-center gap-1"
+              >
+                {project.linkLabel || 'Link'}
+                <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                </svg>
+              </a>
+            )}
+          </div>
+
+          <h3 className="text-2xl font-semibold mb-1">{project.title}</h3>
+          <p className="text-sm text-gray-500 mb-4">{project.subtitle}</p>
+          <p className="text-gray-400 text-sm leading-relaxed mb-6">{project.description}</p>
+
+          <AnimatePresence>
+            {expanded && (
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: 'auto', opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                className="overflow-hidden"
+              >
+                <div className="mb-6">
+                  <h4 className="text-xs uppercase tracking-wider text-gray-500 mb-3">Key Deliverables</h4>
+                  <ul className="space-y-2">
+                    {project.highlights.map((highlight) => (
+                      <li key={highlight} className="flex items-start gap-2 text-sm text-gray-400">
+                        <svg className="w-4 h-4 text-brand-pink flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                        </svg>
+                        {highlight}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {project.architecture && (
+                  <div className="mb-6">
+                    <h4 className="text-xs uppercase tracking-wider text-gray-500 mb-3">Architecture</h4>
+                    <ArchitectureDiagram architecture={project.architecture} />
+                  </div>
+                )}
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          <div className="flex items-center justify-between">
+            <div className="flex flex-wrap gap-2">
+              {project.tags.map((tag) => (
+                <span key={tag} className="px-3 py-1 text-xs rounded-full bg-white/5 text-gray-500">
+                  {tag}
+                </span>
+              ))}
+            </div>
+            <button className="text-gray-600 hover:text-accent transition-colors ml-4 flex-shrink-0">
+              <motion.svg
+                animate={{ rotate: expanded ? 180 : 0 }}
+                transition={{ duration: 0.2 }}
+                className="w-5 h-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+              </motion.svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
 export default function Work() {
+  const [activeFilter, setActiveFilter] = useState('All');
+
+  const filtered =
+    activeFilter === 'All'
+      ? projects
+      : projects.filter((p) => p.category === activeFilter);
+
   return (
     <>
       <Head>
         <title>Work | TumiLabs</title>
-        <meta name="description" content="Explore our portfolio of Solana projects — smart contracts, dApps, DeFi protocols, and full-stack platforms." />
+        <meta
+          name="description"
+          content="Explore 9 case studies from TumiLabs — infrastructure, DeFi, RWA, AI, and gaming products shipped on Solana."
+        />
       </Head>
 
       {/* Hero */}
@@ -97,66 +360,89 @@ export default function Work() {
             className="max-w-3xl"
           >
             <span className="inline-block px-4 py-1.5 rounded-full text-xs font-medium text-accent bg-accent/10 border border-accent/20 mb-6">
-              Portfolio
+              Portfolio — 9 Case Studies
             </span>
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
               Shipped <span className="gradient-text">Products</span>
             </h1>
             <p className="text-lg text-gray-400 leading-relaxed">
-              Real products, live on Solana. From NFT minting infrastructure to DeFi
-              protocols and AI-powered platforms.
+              Real products, live on Solana. From gaming infrastructure and DeFi protocols
+              to real estate tokenization and AI-powered platforms — across 175+ repositories
+              and 4 organizations.
             </p>
+          </motion.div>
+
+          {/* Stats row */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mt-10 flex flex-wrap gap-8"
+          >
+            {[
+              { value: '175+', label: 'Repositories' },
+              { value: '4', label: 'GitHub Orgs' },
+              { value: '9', label: 'Case Studies' },
+              { value: 'Binance', label: 'Client Token Listed' },
+            ].map((stat) => (
+              <div key={stat.label}>
+                <div className="text-xl font-bold text-brand-white">{stat.value}</div>
+                <div className="text-xs text-gray-500">{stat.label}</div>
+              </div>
+            ))}
           </motion.div>
         </div>
       </section>
 
-      {/* Projects */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="space-y-8">
-            {projects.map((project, i) => (
-              <motion.div
-                key={project.title}
-                {...fadeUp}
-                transition={{ duration: 0.5, delay: i * 0.05 }}
-                className="group rounded-2xl glass hover:bg-white/[0.08] transition-all duration-300 overflow-hidden"
+      {/* Filter bar */}
+      <section className="sticky top-16 z-30 bg-dark-950/80 backdrop-blur-xl border-b border-white/5">
+        <div className="max-w-7xl mx-auto px-6 py-4">
+          <div className="flex flex-wrap gap-2">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveFilter(cat)}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                  activeFilter === cat
+                    ? 'bg-accent text-dark-950'
+                    : 'bg-white/5 text-gray-400 hover:bg-white/10 hover:text-brand-white'
+                }`}
               >
-                <div className="grid md:grid-cols-5 gap-0">
-                  <div className={`md:col-span-2 h-full min-h-[200px] bg-gradient-to-br ${project.gradient} opacity-15 group-hover:opacity-25 transition-opacity`} />
-                  <div className="md:col-span-3 p-8 md:p-10">
-                    <div className="flex items-center gap-3 mb-4">
-                      <span className="text-xs font-medium text-accent px-3 py-1 rounded-full bg-accent/10">
-                        {project.category}
-                      </span>
-                    </div>
-                    <h3 className="text-2xl font-semibold mb-3">{project.title}</h3>
-                    <p className="text-gray-400 text-sm leading-relaxed mb-6">{project.description}</p>
-
-                    <div className="mb-6">
-                      <ul className="space-y-2">
-                        {project.highlights.map((highlight) => (
-                          <li key={highlight} className="flex items-center gap-2 text-sm text-gray-400">
-                            <svg className="w-4 h-4 text-brand-pink flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                              <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                            </svg>
-                            {highlight}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div className="flex flex-wrap gap-2">
-                      {project.tags.map((tag) => (
-                        <span key={tag} className="px-3 py-1 text-xs rounded-full bg-white/5 text-gray-500">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
+                {cat}
+                {cat !== 'All' && (
+                  <span className="ml-1.5 text-xs opacity-60">
+                    {projects.filter((p) => p.category === cat).length}
+                  </span>
+                )}
+              </button>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Projects */}
+      <section className="py-12">
+        <div className="max-w-7xl mx-auto px-6">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeFilter}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.3 }}
+              className="space-y-8"
+            >
+              {filtered.map((project, i) => (
+                <ProjectCard key={project.title} project={project} index={i} />
+              ))}
+            </motion.div>
+          </AnimatePresence>
+
+          {filtered.length === 0 && (
+            <div className="text-center py-20 text-gray-500">
+              No projects in this category yet.
+            </div>
+          )}
         </div>
       </section>
 

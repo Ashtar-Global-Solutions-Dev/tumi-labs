@@ -5,10 +5,10 @@ import { useState, useEffect, useRef } from 'react';
 import SectionHeading from '@/components/SectionHeading';
 
 const stats = [
-  { value: '6+', label: 'Projects Shipped' },
+  { value: '175+', label: 'Repositories' },
+  { value: '4', label: 'GitHub Orgs' },
+  { value: '9', label: 'Case Studies' },
   { value: 'Solana', label: 'Ecosystem Focus' },
-  { value: 'Full-Stack', label: 'End-to-End Builds' },
-  { value: '24/7', label: 'Builder Mentality' },
 ];
 
 const services = [
@@ -43,25 +43,25 @@ const services = [
 
 const featuredWork = [
   {
-    title: 'Candy Machine V3',
-    category: 'NFT Infrastructure',
-    desc: 'Production-ready minting UI with 21+ guard types for Metaplex Candy Machine.',
-    tags: ['Solana', 'Metaplex', 'Next.js'],
+    title: 'Honeycomb Protocol',
+    category: 'Infrastructure',
+    desc: 'Core contributor to the leading Web3 gaming infrastructure on Solana — hive-control, asset-hub, Unity-SDK & more.',
+    tags: ['Rust', 'Anchor', 'Unity C#'],
+    gradient: 'from-accent to-brand-turquoise',
+  },
+  {
+    title: 'Hololaunch',
+    category: 'Infrastructure',
+    desc: 'Decentralized token launchpad with staking, ICO & lottery modules. Client token listed on Binance.',
+    tags: ['Rust', 'Anchor', 'PostgreSQL'],
     gradient: 'from-accent to-brand-pink',
   },
   {
-    title: 'Staking Protocol',
-    category: 'DeFi',
-    desc: 'Token staking smart contract and backend services built with Anchor on Solana.',
-    tags: ['Rust', 'Anchor', 'Solana'],
+    title: 'LiquidProp',
+    category: 'DeFi / RWA',
+    desc: 'First-to-market decentralized real estate marketplace on Solana — $100 fractional property ownership.',
+    tags: ['Solana', 'Anchor', 'React'],
     gradient: 'from-brand-pink to-accent',
-  },
-  {
-    title: 'Solana Raffle',
-    category: 'dApp',
-    desc: 'Full-stack on-chain raffle platform with real-time updates and analytics.',
-    tags: ['React', 'Express', 'PostgreSQL'],
-    gradient: 'from-brand-frostbite to-brand-pink',
   },
 ];
 
