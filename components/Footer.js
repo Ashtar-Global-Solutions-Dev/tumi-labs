@@ -25,13 +25,12 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           <div className="md:col-span-1">
-            <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-accent to-brand-turquoise flex items-center justify-center font-bold text-sm text-dark-950">
-                T
-              </div>
-              <span className="text-xl font-bold tracking-tight">
-                Tumi<span className="text-accent">Labs</span>
-              </span>
+            <Link href="/" className="flex items-center mb-4">
+              <img 
+                src="/logo.svg" 
+                alt="TumiLabs" 
+                className="h-8 w-auto"
+              />
             </Link>
             <p className="text-gray-500 text-sm leading-relaxed">
               Building the future of Web3.
