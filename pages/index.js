@@ -1,6 +1,7 @@
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import Head from 'next/head';
+import { useState, useEffect, useRef } from 'react';
 import SectionHeading from '@/components/SectionHeading';
 
 const stats = [
@@ -72,11 +73,60 @@ const fadeUp = {
 };
 
 export default function Home() {
+  const [showIntro, setShowIntro] = useState(true);
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    // Check if user has seen intro this session
+    if (sessionStorage.getItem('introSeen')) {
+      setShowIntro(false);
+    }
+  }, []);
+
+  const handleVideoEnd = () => {
+    sessionStorage.setItem('introSeen', 'true');
+    setShowIntro(false);
+  };
+
+  const skipIntro = () => {
+    sessionStorage.setItem('introSeen', 'true');
+    setShowIntro(false);
+  };
+
   return (
     <>
       <Head>
         <title>TumiLabs | Solana Venture Studio</title>
       </Head>
+
+      {/* Video Intro */}
+      <AnimatePresence>
+        {showIntro && (
+          <motion.div
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8 }}
+            className="fixed inset-0 z-[100] bg-dark-950 flex items-center justify-center cursor-pointer"
+            onClick={skipIntro}
+          >
+            <video
+              ref={videoRef}
+              src="/logo-animation.mp4"
+              autoPlay
+              muted
+              playsInline
+              onEnded={handleVideoEnd}
+              className="w-full max-w-2xl"
+            />
+            <button 
+              onClick={skipIntro}
+              className="absolute bottom-8 right-8 text-sm text-gray-500 hover:text-accent transition-colors"
+            >
+              Skip
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Hero */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
@@ -90,8 +140,8 @@ export default function Home() {
         <div className="relative max-w-7xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            animate={{ opacity: showIntro ? 0 : 1, y: showIntro ? 40 : 0 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: showIntro ? 0 : 0.2 }}
           >
             <span className="inline-block px-4 py-1.5 rounded-full text-xs font-medium text-brand-turquoise bg-brand-turquoise/10 border border-brand-turquoise/20 mb-8">
               Solana Venture Studio
