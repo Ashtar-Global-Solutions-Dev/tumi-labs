@@ -36,8 +36,9 @@ const projects = [
       'toolkit — Core Rust toolkit',
       'Compressed accounts indexer (DAS fork)',
     ],
-    link: 'https://github.com/Honeycomb-Protocol',
-    linkLabel: 'GitHub',
+    image: '/projects/honeycomb.jpg',
+    link: 'https://docs.honeycombprotocol.com',
+    linkLabel: 'Docs',
   },
   {
     title: 'Hololaunch',
@@ -53,9 +54,12 @@ const projects = [
       'Real-time blockchain indexer via Yellowstone gRPC',
       'TSOA/Swagger API documentation',
     ],
+    image: '/projects/hololaunch.jpg',
+    link: 'https://www.hololaunch.ai',
+    linkLabel: 'Live Site',
     detail: {
       label: 'Notable',
-      value: 'Client token listed on Binance',
+      value: '$200M+ raised · Binance listed',
     },
   },
   {
@@ -71,6 +75,9 @@ const projects = [
       'Payments reference implementation',
       'Developer documentation',
     ],
+    image: '/projects/gameshift.jpg',
+    link: 'https://www.gameshift.dev',
+    linkLabel: 'Live Site',
   },
   {
     title: 'LiquidProp',
@@ -86,6 +93,7 @@ const projects = [
       'Rent distribution via micropayments',
       'Real U.S. rental properties on-chain',
     ],
+    image: '/projects/liquidprop.jpg',
     link: 'https://liquidprop-marketplace.vercel.app',
     linkLabel: 'Live App',
   },
@@ -151,20 +159,28 @@ const projects = [
       'Honeycomb Protocol integration',
       'SPL token support',
     ],
+    image: '/projects/proleague.jpg',
+    link: 'https://proleague.gg',
+    linkLabel: 'Live Site',
   },
   {
     title: 'BonkSpin',
     category: 'Gaming',
-    subtitle: 'Viral $BONK Spin Wheel Game',
+    subtitle: 'IRL Activation at Solana Breakpoint',
     description:
-      'Viral spin wheel game with $BONK token integration. High-engagement gamification mechanic built for token communities with provably fair results.',
-    tags: ['TypeScript', 'React', 'Solana Web3.js'],
+      'Live IRL activation tool for the $BONK community, deployed at Solana Breakpoint Lisbon. Interactive spin wheel with real-time $BONK token prizes, creating buzz and engagement at the conference.',
+    tags: ['TypeScript', 'React', 'Solana Web3.js', 'IRL Event'],
     highlights: [
-      'Spin wheel mechanics',
-      '$BONK token integration',
-      'Prize distribution system',
-      'Provably fair results',
+      'Live at Solana Breakpoint Lisbon',
+      'Real-time $BONK token prizes',
+      'Interactive spin wheel mechanics',
+      'Provably fair on-chain results',
+      'Community engagement activation',
     ],
+    detail: {
+      label: 'Event',
+      value: 'Breakpoint Lisbon 2024',
+    },
   },
 ];
 
@@ -232,7 +248,14 @@ function ProjectCard({ project, index }) {
       onClick={() => setExpanded(!expanded)}
     >
       <div className="grid md:grid-cols-5 gap-0">
-        <div className={`md:col-span-2 h-full min-h-[200px] bg-gradient-to-br ${gradient} opacity-15 group-hover:opacity-25 transition-opacity relative`}>
+        <div className={`md:col-span-2 h-full min-h-[200px] relative overflow-hidden ${!project.image ? `bg-gradient-to-br ${gradient} opacity-15 group-hover:opacity-25` : ''} transition-opacity`}>
+          {project.image && (
+            <img 
+              src={project.image} 
+              alt={project.title}
+              className="w-full h-full object-cover object-top opacity-60 group-hover:opacity-80 transition-opacity"
+            />
+          )}
           {project.detail && (
             <div className="absolute bottom-4 left-4 right-4">
               <div className="px-3 py-2 rounded-lg bg-black/60 backdrop-blur-sm border border-white/10">

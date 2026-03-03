@@ -8,7 +8,7 @@ const stats = [
   { value: '9', label: 'Products Shipped to Mainnet' },
   { value: 'Core', label: 'Contributors to Honeycomb Protocol' },
   { value: '1', label: 'Client Token Listed on Binance' },
-  { value: '$2M+', label: 'TVL Secured for Clients' },
+  { value: '$200M+', label: 'Raised via Our Launchpads' },
 ];
 
 const services = [
@@ -19,7 +19,7 @@ const services = [
       </svg>
     ),
     title: 'Smart Contracts',
-    desc: 'Production-grade Solana programs that don\'t break at scale. We\'ve written staking contracts securing $2M+ and DeFi protocols handling thousands of daily transactions.',
+    desc: 'Production-grade Solana programs that don\'t break at scale. We\'ve built launchpads raising $200M+ and DeFi protocols handling thousands of daily transactions.',
     link: '/work#defi',
     linkText: 'See our DeFi work →',
   },
@@ -62,7 +62,7 @@ const featuredWork = [
     title: 'Hololaunch',
     category: 'Decentralized Token Launchpad',
     desc: 'Built the full launchpad with staking, ICO, and lottery modules.',
-    impact: 'Client token listed on Binance.',
+    impact: '$200M+ raised. Client token listed on Binance.',
     tags: ['Rust', 'Anchor', 'PostgreSQL'],
     gradient: 'from-accent to-brand-pink',
     highlight: true,
@@ -174,7 +174,7 @@ export default function Home() {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
           >
             <span className="inline-block px-4 py-1.5 rounded-full text-xs font-medium text-brand-pink bg-brand-pink/10 border border-brand-pink/20 mb-8">
-              The Solana Studio Behind $2M+ in Shipped Products
+              The Solana Studio Behind $200M+ in Shipped Products
             </span>
 
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95] mb-8">

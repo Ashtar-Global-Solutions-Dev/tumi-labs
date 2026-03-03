@@ -7,7 +7,7 @@ const builderServices = [
   {
     id: 'smart-contracts',
     title: 'Smart Contract Development',
-    description: 'Production-grade Solana programs that don\'t break at scale. We\'ve written staking contracts securing $2M+ and DeFi protocols handling thousands of daily transactions.',
+    description: 'Production-grade Solana programs that don\'t break at scale. We\'ve built launchpads raising $200M+ and DeFi protocols handling thousands of daily transactions.',
     features: [
       'Anchor/Rust program development',
       'Token programs & SPL extensions',
