@@ -118,7 +118,8 @@ export default function Home() {
               muted
               playsInline
               onEnded={handleVideoEnd}
-              className="w-screen h-screen object-contain"
+              onClick={skipIntro}
+              className="w-screen h-screen object-contain cursor-pointer"
             />
             <button 
               onClick={skipIntro}
