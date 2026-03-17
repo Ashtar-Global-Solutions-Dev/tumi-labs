@@ -194,8 +194,8 @@ export default function Contact() {
                     </div>
                     <div>
                       <div className="text-sm font-medium text-gray-300">Email</div>
-                      <a href="mailto:hello@tumilabs.xyz" className="text-sm text-accent hover:text-brand-white transition-colors">
-                        hello@tumilabs.xyz
+                      <a href="mailto:hello@tumilabs.com" className="text-sm text-accent hover:text-brand-white transition-colors">
+                        hello@tumilabs.com
                       </a>
                     </div>
                   </div>
