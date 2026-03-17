@@ -15,7 +15,7 @@ const footerLinks = {
   ],
   Connect: [
     { href: 'https://x.com/tumilabs', label: 'X (Twitter)', external: true },
-    { href: 'https://github.com/tumilabs', label: 'GitHub', external: true },
+    { href: 'https://github.com/tumi-labs', label: 'GitHub', external: true },
   ],
 };
 
